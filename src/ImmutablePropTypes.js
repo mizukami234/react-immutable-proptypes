@@ -223,6 +223,8 @@ function createIterableOfTypeChecker(typeChecker) {
   return createIterableTypeChecker(typeChecker, 'Iterable', Immutable.Iterable.isIterable);
 }
 
+var CACHE_KEY = '__REACT_IMMUTABLE_PROPTYPES_VALIDATED_BY__';
+
 function createRecordOfTypeChecker(recordKeys) {
   function validate(props, propName, componentName, location, propFullName, ...rest) {
     var propValue = props[propName];
@@ -233,6 +235,10 @@ function createRecordOfTypeChecker(recordKeys) {
         `Invalid ${locationName} \`${propFullName}\` of type \`${propType}\` ` +
         `supplied to \`${componentName}\`, expected an Immutable.js Record.`
       );
+    }
+    // cache validation result to make it faster
+    if (propValue[CACHE_KEY] === recordKeys) {
+      return;
     }
     for (var key in recordKeys) {
       var checker = recordKeys[key];
@@ -245,6 +251,7 @@ function createRecordOfTypeChecker(recordKeys) {
         return error;
       }
     }
+    propValue[CACHE_KEY] = recordKeys;
   }
   return createChainableTypeChecker(validate);
 }
