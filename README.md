@@ -1,3 +1,7 @@
+**Because [the original repo](https://github.com/HurricaneJames/react-immutable-proptypes) looked unmaintained, I forked this repo to solve some issues. If the original repo revive in the future, this fork may be closed.**
+
+--------
+
 # react-immutable-proptypes
 
 [![npm package](https://img.shields.io/npm/v/react-immutable-proptypes.svg?style=flat)](https://www.npmjs.org/package/react-immutable-proptypes) [![Code Climate](https://codeclimate.com/github/HurricaneJames/react-immutable-proptypes/badges/gpa.svg)](https://codeclimate.com/github/HurricaneJames/react-immutable-proptypes) [![Test Coverage](https://codeclimate.com/github/HurricaneJames/react-immutable-proptypes/badges/coverage.svg)](https://codeclimate.com/github/HurricaneJames/react-immutable-proptypes)
